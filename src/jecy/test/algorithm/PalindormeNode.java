@@ -1,5 +1,7 @@
 package jecy.test.algorithm;
 
+import jecy.test.algorithm.nodelist.Node;
+
 public class PalindormeNode {
 
     public static void main(String[] args) {

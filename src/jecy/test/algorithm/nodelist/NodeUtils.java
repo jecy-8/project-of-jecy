@@ -1,4 +1,4 @@
-package jecy.test.algorithm;
+package jecy.test.algorithm.nodelist;
 
 public class NodeUtils<T> {
 

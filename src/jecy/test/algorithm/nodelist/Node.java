@@ -1,4 +1,4 @@
-package jecy.test.algorithm;
+package jecy.test.algorithm.nodelist;
 
 /*
     自己定义链表元素
