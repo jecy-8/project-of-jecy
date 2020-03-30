@@ -41,6 +41,5 @@ public class ReverseNodeList {
         System.out.println("Primary list: " + NodeUtils.listAllNodes(headNode));
         Node<String> newHeadNode = reverseNode(headNode);
         System.out.println("List after reverse: " + NodeUtils.listAllNodes(newHeadNode));
-        ;
     }
 }

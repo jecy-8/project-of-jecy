@@ -17,6 +17,7 @@ public class NodeUtils<T> {
         return headNode;
     }
 
+    // 建议调用之前检查是否存在环，避免无限死循环
     public static String listAllNodes(Node headNode) {
         StringBuffer sb = new StringBuffer("");
         // 单链表尾为空，直接返回空字符串
