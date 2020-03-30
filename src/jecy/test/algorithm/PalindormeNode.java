@@ -7,6 +7,7 @@ public class PalindormeNode {
         int[] a = {1, 2, 3, 4, 4, 3, 2, 1, 0};
         // 准备数据
         Node headNode = prepareData(a);
+        System.out.println(printNodeList(headNode));
 
         // 获取中结节
         Node middleNode = getMiddleNode(headNode);
@@ -20,7 +21,13 @@ public class PalindormeNode {
         // 将后半段逆序复原
         middleNode = reverseNode(reverseNode);
 
-        System.out.println(isPalindrome);
+        if (isPalindrome) {
+            System.out.println("The list is palindrome.");
+        }
+        else {
+            System.out.println("The list is not palindrome.");
+        }
+
     }
 
     // 判断是否是回文
@@ -52,6 +59,22 @@ public class PalindormeNode {
         }
         tempNode.setNext(headNode);
         return tempNode;
+    }
+
+    private static String printNodeList(Node headNode) {
+        StringBuffer sb = new StringBuffer("");
+        // 单链表尾为空，直接返回空字符串
+        if (headNode == null) {
+            return sb.toString();
+        }
+        // 链表头节点
+        sb.append(headNode.getValue().toString());
+        while(headNode.getNext() != null) {
+            sb.append(",").append(headNode.getNext().getValue().toString());
+            headNode = headNode.getNext();
+        }
+        sb.substring(0, sb.length()-1);
+        return sb.toString();
     }
 
 

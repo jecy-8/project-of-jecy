@@ -3,23 +3,23 @@ package jecy.test.algorithm;
 /*
     自己定义链表元素
  */
-public class Node {
-    private int value;
+public class Node<T> {
+    private T value;
     private Node next;
 
     public Node() {
 
     }
 
-    public Node(int value) {
+    public Node(T value) {
         this.value = value;
     }
 
-    public int getValue() {
+    public T getValue() {
         return value;
     }
 
-    public void setValue(int value) {
+    public void setValue(T value) {
         this.value = value;
     }
 
@@ -30,4 +30,6 @@ public class Node {
     public void setNext(Node next) {
         this.next = next;
     }
+
+
 }
