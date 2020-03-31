@@ -84,6 +84,19 @@ public class MergeTwoSortedList {
 
     // 遍历解法，同时不断遍历两个链表，取出小的追加到新的头节点后，直至两者其中一个为空，再将另一者追加的新链表最后
     public static Node mergeTwoSortedList2(Node<Integer> head1, Node<Integer> head2) {
+        // 两个链表为空，返回null
+        if (head1 == null && head2 == null) {
+            return null;
+        }
+        // 链表1为空，直接返回链表2的头节点head2
+        if (head1 == null) {
+            return head2;
+        }
+        // 链表2为空，直接返回链表2的头节点head1
+        if (head2 == null) {
+            return head1;
+        }
+
         Node<Integer> dummy = new Node<>(-1);
         Node<Integer> current = dummy;
 
@@ -103,6 +116,31 @@ public class MergeTwoSortedList {
         return dummy.getNext();
     }
 
+    // 递归解法
+    public static Node mergeTwoSortedList3(Node<Integer> head1, Node<Integer> head2) {
+        // 两个链表为空，返回null
+        if (head1 == null && head2 == null) {
+            return null;
+        }
+        // 链表1为空，直接返回链表2的头节点head2
+        if (head1 == null) {
+            return head2;
+        }
+        // 链表2为空，直接返回链表2的头节点head1
+        if (head2 == null) {
+            return head1;
+        }
+
+        if (head1.getValue().intValue() <= head2.getValue().intValue()) {
+            head1.setNext(mergeTwoSortedList3(head1.getNext(), head2));
+            return head1;
+        }
+        else {
+            head2.setNext(mergeTwoSortedList3(head1, head2.getNext()));
+            return head2;
+        }
+    }
+
     public static void main(String[] args) {
         NodeUtils nodeUtils = new NodeUtils();
         Integer[] intList1 = {2, 5};
@@ -116,7 +154,10 @@ public class MergeTwoSortedList {
 //        Node<Integer> mergeHead = mergeTwoSortedList(head1, head2);
 //        System.out.println("list after merge list1 and list2: " + NodeUtils.listAllNodes(mergeHead));
 
-        Node<Integer> mergeHead2 = mergeTwoSortedList2(head1, head2);
-        System.out.println("list after merge list1 and list2 by method 2: " + NodeUtils.listAllNodes(mergeHead2));
+//        Node<Integer> mergeHead2 = mergeTwoSortedList2(head1, head2);
+//        System.out.println("list after merge list1 and list2 by traverse: " + NodeUtils.listAllNodes(mergeHead2));
+
+        Node<Integer> mergeHead3 = mergeTwoSortedList3(head1, head2);
+        System.out.println("list after merge list1 and list2 by recursive: " + NodeUtils.listAllNodes(mergeHead3));
     }
 }
