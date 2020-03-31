@@ -82,6 +82,27 @@ public class MergeTwoSortedList {
         return newHead;
     }
 
+    // 遍历解法，同时不断遍历两个链表，取出小的追加到新的头节点后，直至两者其中一个为空，再将另一者追加的新链表最后
+    public static Node mergeTwoSortedList2(Node<Integer> head1, Node<Integer> head2) {
+        Node<Integer> dummy = new Node<>(-1);
+        Node<Integer> current = dummy;
+
+        while (head1 != null && head2 != null) {
+            if (head1.getValue().intValue() <= head2.getValue().intValue()) {
+                current.setNext(head1);
+                head1 = head1.getNext();
+            }
+            else {
+                current.setNext(head2);
+                head2 = head2.getNext();
+            }
+            current = current.getNext();
+        }
+
+        current.setNext((head1 == null ? head2 : head1));
+        return dummy.getNext();
+    }
+
     public static void main(String[] args) {
         NodeUtils nodeUtils = new NodeUtils();
         Integer[] intList1 = {2, 5};
@@ -91,7 +112,11 @@ public class MergeTwoSortedList {
         Node<Integer> head2 = nodeUtils.prepareNodeList(intList2);
         System.out.println("list1 before merge: " + NodeUtils.listAllNodes(head1));
         System.out.println("list2 before merge: " + NodeUtils.listAllNodes(head2));
-        Node<Integer> mergeHead = mergeTwoSortedList(head1, head2);
-        System.out.println("list after merge list1 and list2: " + NodeUtils.listAllNodes(mergeHead));
+
+//        Node<Integer> mergeHead = mergeTwoSortedList(head1, head2);
+//        System.out.println("list after merge list1 and list2: " + NodeUtils.listAllNodes(mergeHead));
+
+        Node<Integer> mergeHead2 = mergeTwoSortedList2(head1, head2);
+        System.out.println("list after merge list1 and list2 by method 2: " + NodeUtils.listAllNodes(mergeHead2));
     }
 }
