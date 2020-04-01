@@ -3,7 +3,7 @@ package jecy.test.algorithm.nodelist;
 public class ReverseNodeList {
 
     // 反转单链表，输入链表的头节点，输出链表的尾结点
-    public static Node reverseNode(Node headNode) {
+    public static Node  reverseNode(Node headNode) {
         // 单链表为空，或者只有一个节点，直接返回头结点
         if (headNode == null || headNode.getNext() == null) {
             return headNode;

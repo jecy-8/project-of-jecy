@@ -19,10 +19,10 @@ public class NodeUtils<T> {
 
     // 建议调用之前检查是否存在环，避免无限死循环
     public static String listAllNodes(Node headNode) {
-        StringBuffer sb = new StringBuffer("");
+        StringBuffer sb = new StringBuffer("{");
         // 单链表尾为空，直接返回空字符串
         if (headNode == null) {
-            return sb.toString();
+            return sb.append("}").toString();
         }
         // 链表头节点
         sb.append(headNode.getValue().toString()).append(",");
@@ -30,6 +30,8 @@ public class NodeUtils<T> {
             sb.append(headNode.getNext().getValue().toString()).append(",");
             headNode = headNode.getNext();
         }
-        return sb.substring(0, sb.length()-1);
+        StringBuffer sb2 = new StringBuffer(sb.substring(0, sb.length()-1));
+        sb2.append("}");
+        return sb2.toString();
     }
 }

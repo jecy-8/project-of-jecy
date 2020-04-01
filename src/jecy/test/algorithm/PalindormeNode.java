@@ -97,10 +97,7 @@ public class PalindormeNode {
         // 定义两个指针，一个快指针，一个慢指针
         Node lowNode = headNode;
         Node fastNode = headNode;
-       /* Node fastNode = null;
-        if(lowNode != null){
-            fastNode = lowNode.getNext();
-        }*/
+
         // 慢指针一次走一步，快指针一次走两步，快指针走到终点时，慢指针刚好处于中点位置
         while (fastNode != null) {
             // 说明链表长度为奇数，此时lowNode就是中间位置
