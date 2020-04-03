@@ -3,6 +3,7 @@ package jecy.test.algorithm;
 import jecy.test.algorithm.nodelist.Node;
 import jecy.test.algorithm.queue.ArrayQueue;
 import jecy.test.algorithm.queue.CircularQueue;
+import jecy.test.algorithm.queue.ListQueue;
 import jecy.test.algorithm.stack.ArrayStack;
 import jecy.test.algorithm.stack.ListStack;
 
@@ -54,5 +55,16 @@ public class CommonUtils {
         return sb2.append("}").toString();
     }
 
-
+    // 打印链表队列中的元素
+    public static String printListQueue(ListQueue listQueue) {
+        StringBuffer sb = new StringBuffer("{");
+        Node head = listQueue.getHead();
+        Node tail = listQueue.getTail();
+        while (head.getNext() != tail) {
+            sb.append(head.getNext().getValue()).append(",");
+            head = head.getNext();
+        }
+        sb.append(tail.getValue()).append("}");
+        return sb.toString();
+    }
 }
