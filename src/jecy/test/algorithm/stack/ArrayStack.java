@@ -1,5 +1,7 @@
 package jecy.test.algorithm.stack;
 
+import jecy.test.algorithm.CommonUtils;
+
 public class ArrayStack {
     /**
      * 用数组实现的栈
@@ -74,17 +76,6 @@ public class ArrayStack {
         return tmp;
     }
 
-    // 打印栈中元素
-    public static String printStack(ArrayStack arrayStack) {
-        int size = arrayStack.getCount();
-        StringBuffer sb = new StringBuffer("{");
-        for (int i = 0; i < size; i ++) {
-            sb.append(arrayStack.getStackArray()[i]).append(",");
-        }
-        StringBuffer sb2 = new StringBuffer(sb.substring(0, sb.length() - 1));
-        return sb2.append("}").toString();
-    }
-
     public static void main(String[] args) {
         ArrayStack arrayStack = new ArrayStack(10);
         arrayStack.push(1);
@@ -93,7 +84,7 @@ public class ArrayStack {
         arrayStack.push(4);
         arrayStack.pop();
         arrayStack.push(5);
-        System.out.println(printStack(arrayStack));
+        System.out.println(CommonUtils.printArrayStack(arrayStack));
         System.out.println("The top element is: " + arrayStack.peek());
     }
 

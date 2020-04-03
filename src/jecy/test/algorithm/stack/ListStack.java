@@ -1,5 +1,6 @@
 package jecy.test.algorithm.stack;
 
+import jecy.test.algorithm.CommonUtils;
 import jecy.test.algorithm.nodelist.Node;
 
 public class ListStack {
@@ -83,17 +84,6 @@ public class ListStack {
         return head.getValue();
     }
 
-    // 打印栈中的元素
-    public static String printStack(ListStack listStack) {
-        Node head = listStack.getHeader();
-        StringBuffer sb = new StringBuffer("{");
-        while (head != null) {
-            sb.append(head.getValue().toString()).append(",");
-            head = head.getNext();
-        }
-        StringBuffer sb2 = new StringBuffer(sb.substring(0, sb.length() - 1));
-        return sb2.append("}").toString();
-    }
 
     public static void main(String[] args) {
         ListStack listStack = new ListStack(10);
@@ -108,7 +98,7 @@ public class ListStack {
         listStack.push(n4);
         listStack.pop();
         listStack.push(n5);
-        System.out.println(printStack(listStack));
+        System.out.println(CommonUtils.printListStack(listStack));
         System.out.println("The top element is: " + listStack.peek());
     }
 }
