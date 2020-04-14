@@ -1,6 +1,7 @@
 package jecy.test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class TempTest {
     public static void printArray(String[] array) {
@@ -17,6 +18,11 @@ public class TempTest {
         System.out.println(sb.intern() == sb);
 
         System.out.println(new ArrayList<Integer>().getClass() == new ArrayList<String>().getClass());
+
+        int i = Arrays.binarySearch(new int[]{1, 2, 3}, 3);
+        int j = Arrays.binarySearch(new String[]{"1", "2", "3"}, "3");
+        System.out.println(i + "\n" + j);
+
 
     }
 }
