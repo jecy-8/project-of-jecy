@@ -3,6 +3,8 @@ package jecy.test.algorithm.sort;
 public class InsertSort {
 
     public static void insertSort(int[] arr) {
+        if (arr.length <= 1)
+            return;
         int temp;
 
         for (int i=1;i<arr.length;i++){
@@ -23,6 +25,8 @@ public class InsertSort {
     }
 
     public static void insertSort2(int[] arr) {
+        if (arr.length <= 1)
+            return;
         for (int i = 1; i < arr.length; i ++) {
             int temp = arr[i];
             int j = i - 1;
@@ -35,21 +39,11 @@ public class InsertSort {
         }
     }
 
-    public static void printArr(int[] arr) {
-        StringBuffer sb = new StringBuffer("{");
-        for (int i = 0; i < arr.length; i ++) {
-            sb.append(arr[i]).append(",");
-        }
-        sb.deleteCharAt(sb.toString().length() - 1);
-        sb.append("}");
-        System.out.println(sb.toString());
-    }
-
 
     public static void main(String[] args) {
         int arr[] = {2,1,5,3,6,4,9,8,7};
-        printArr(arr);
+        System.out.println(SortUtils.getArrayElements(arr));
         insertSort2(arr);
-        printArr(arr);
+        System.out.println(SortUtils.getArrayElements(arr));
     }
 }

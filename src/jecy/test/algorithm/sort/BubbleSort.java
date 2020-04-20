@@ -3,6 +3,8 @@ package jecy.test.algorithm.sort;
 public class BubbleSort {
 
     public static void bubbleSort(int[] a) {
+        if (a.length <= 1)
+            return;
         int size = a.length;
         // 打印出来的是有交换的
         System.out.println("start bubbling...");
@@ -15,7 +17,7 @@ public class BubbleSort {
                     a[j] = a[j+1];
                     a[j+1] = temp;
                     flag = true;
-                    System.out.println(getArrayElements(a));
+                    System.out.println(SortUtils.getArrayElements(a));
                 }
             }
             if(!flag) {
@@ -24,18 +26,12 @@ public class BubbleSort {
         }
     }
 
-    public static String getArrayElements(int[] a) {
-        StringBuffer sb = new StringBuffer();
-        for (int i = 0; i < a.length; i ++) {
-            sb.append(a[i]).append(",");
-        }
-        return sb.substring(0, sb.length() - 1);
-    }
+
 
     public static void main(String[] args) {
         int[] a = {2,4,3,1,6,5};
-        System.out.println("primary array: " + getArrayElements(a));
+        System.out.println("primary array: " + SortUtils.getArrayElements(a));
         bubbleSort(a);
-        System.out.println("sort by bubble: " + getArrayElements(a));
+        System.out.println("sort by bubble: " + SortUtils.getArrayElements(a));
     }
 }
