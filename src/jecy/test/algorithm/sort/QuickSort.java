@@ -2,6 +2,14 @@ package jecy.test.algorithm.sort;
 
 public class QuickSort {
 
+    /*
+        1. 选取序列最左侧位置元素为基准值k
+        2. 设置两个哨兵i,j分别从左右两端开始探测
+        3. 当满足i<j时，哨兵j先出动，从右往左扫描，碰到小于k的元素停止；哨兵i出动，从左往右扫描，碰到大于k的元素停止
+        5. 当满足i<j时，交换i,j位置的元素
+        6. 当哨兵i,j相遇时，探测结束，将基准值与i,j此时位置的值交换
+        7. 依次递归基准值左边的序列和右边的序列
+     */
     public static void main(String[] args) {
         int arr[] = {2,1,5,3,6,4,9,8,7};
         System.out.println(SortUtils.getArrayElements(arr));
