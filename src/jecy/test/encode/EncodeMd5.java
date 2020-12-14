@@ -1,3 +1,4 @@
+/*
 package jecy.test.encode;
 
 
@@ -42,3 +43,4 @@ public class EncodeMd5 {
         System.out.println(md5(imageByte));
     }
 }
+*/
