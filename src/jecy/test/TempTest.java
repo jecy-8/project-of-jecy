@@ -37,7 +37,7 @@ public class TempTest {
         /*System.out.println(f1());
         System.out.println(f2()[0]);*/
 
-        Map<String, String> map = new HashMap<>();
+        /*Map<String, String> map = new HashMap<>();
         map.put("name", "Jecy");
 
         Class<?> type = map.getClass();
@@ -46,7 +46,19 @@ public class TempTest {
         System.out.println("capacity=" + capacity.invoke(map));
 
         Field size = type.getDeclaredField("size");
-        System.out.println("size=" + size.get(map));
+        System.out.println("size=" + size.get(map));*/
+
+        String s1 = new String("1") + new String("1");
+//        s1.intern();
+        String s2 = "11";
+        System.out.println(s1 == s2);
+
+        String s3 = new String("11");
+        s3.intern();
+        String s4 = "11";
+        System.out.println(s3 == s4);
+
+
 
 
     }
