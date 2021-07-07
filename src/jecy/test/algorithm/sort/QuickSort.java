@@ -13,7 +13,7 @@ public class QuickSort {
     public static void main(String[] args) {
         int arr[] = {2,1,5,3,6,4,9,8,7};
         System.out.println(SortUtils.getArrayElements(arr));
-        quickSort(arr, 0, 8);
+        quickSort2(arr, 0, 8);
         System.out.println(SortUtils.getArrayElements(arr));
     }
 
@@ -62,5 +62,29 @@ public class QuickSort {
 
         // 递归调用基准值右边的数组
         quickSort(arr, j+1, right);
+    }
+
+    public static void quickSort2(int arr[], int left, int right) {
+        int i = left, j = right;
+        int base;
+        if (i < j) {
+            // 以最左边的节点为基准数
+            base = arr[i];
+            while (i != j) {
+                // 从右往左扫描，寻找比基准数小的元素
+                while (j > i && arr[j] > base) --j;
+                // 将比基准数小的元素放到left所在的位置
+                arr[i] = arr[j];
+                // 从左往右扫描，寻找比基准数大的元素
+                while (i < j && arr[i] < base) ++i;
+                // 将比基准数大的元素放到right所在的位置
+                arr[j] = arr[i];
+            }
+            // 将基准数放到i,j重合的地方
+            arr[i] = base;
+            // 以基准数节点为分割点，分别递归处理左边和右边
+            quickSort2(arr, left, i - 1);
+            quickSort2(arr, i + 1, right);
+        }
     }
 }

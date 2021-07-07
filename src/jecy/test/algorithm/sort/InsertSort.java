@@ -39,11 +39,27 @@ public class InsertSort {
         }
     }
 
+    public static void insertSort3(int[] arr) {
+        int n = arr.length;
+        for (int i = 0; i < n; i ++) {
+            for (int j = i; j > 0 ; j --) {
+                if (arr[j] < arr[j - 1]) {
+                    int temp = arr[j];
+                    arr[j] = arr[j - 1];
+                    arr[j - 1] = temp;
+                }
+                else {
+                    break;
+                }
+            }
+        }
+    }
 
-    public static void main(String[] args) {
+
+    public static void  main(String[] args) {
         int arr[] = {2,1,5,3,6,4,9,8,7};
         System.out.println(SortUtils.getArrayElements(arr));
-        insertSort2(arr);
+        insertSort3(arr);
         System.out.println(SortUtils.getArrayElements(arr));
     }
 }

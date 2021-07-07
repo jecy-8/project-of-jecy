@@ -1,7 +1,6 @@
 package jecy.test;
 
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.Properties;
 
 public class TestConfigProperties {
@@ -9,8 +8,15 @@ public class TestConfigProperties {
     private static Properties readProperties(){
         Properties properties = new Properties();
         InputStream is = Object.class.getResourceAsStream("/resources/config.properties");
+        FileInputStream fis = null;
         try {
-            properties.load(is);
+            File file = new File("./src/resources/config.properties");
+            fis = new FileInputStream(file);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        try {
+            properties.load(fis);
         } catch (IOException e) {
             e.printStackTrace();
         }
